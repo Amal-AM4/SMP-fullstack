@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Student" ADD COLUMN     "createAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+ADD COLUMN     "isDeleted" BOOLEAN DEFAULT false,
+ADD COLUMN     "updateAt" TIMESTAMP(3);
