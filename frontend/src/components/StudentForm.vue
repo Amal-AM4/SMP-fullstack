@@ -28,7 +28,10 @@
 
 <script>
 export default {
-    props: ['btnName'],
+    props: {
+        btnName: String,
+        studentData: Object
+    },
     data() {
         return {
             student: {
@@ -39,9 +42,33 @@ export default {
             }
         }
     },
+    watch: {
+        studentData: {
+            handler(newData) {
+                if (newData) {
+                    this.student = { ...newData };  // Spread to avoid modifying props directly
+                }
+            },
+            immediate: true,
+            deep: true
+        }
+    },
     methods: {
         handleSubmit() {
-            this.$emit("add-student", this.student)
+            if (this.student.id) {
+                this.$emit("update-student", this.student); // ✅ If student has an ID, update
+            } else {
+                this.$emit("add-student", this.student); // ✅ If new student, add
+                this.resetForm(); // ✅ Clears form fields after adding a new student
+            }
+        },
+        resetForm() {
+            this.student = {
+                name: '',
+                age: '',
+                email: '',
+                course: ''
+            };
         }
     }
 }

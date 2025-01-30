@@ -42,6 +42,9 @@ export default {
             // this.$router.replace({name: 'StudentList'})
             window.location.reload()
         },
+        updateStudent(stdUUID) {
+            this.$router.push(`/edit/${stdUUID}`)
+        }
     },
 }
 </script>

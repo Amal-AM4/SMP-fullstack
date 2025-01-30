@@ -8,6 +8,7 @@ router.post('/addStudent', studentController.addStudent);
 router.get('/allStudents', studentController.getStudents);
 router.get('/getData/:id', studentController.getData);
 router.put('/removeStudent/:id', studentController.removeStudent);
+router.put('/updateStudent/:id', studentController.updateStudent);
 
 
 module.exports = router;

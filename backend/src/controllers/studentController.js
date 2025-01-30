@@ -67,6 +67,33 @@ async function removeStudent(req, res) {
     }
 }
 
+async function updateStudent(req, res) {
+    try {
+        const id = req.params.id;
+        const { name, age, email, course } = req.body;
+        const student = await prisma.Student.findFirst({
+            where: {
+                stdUUID: id
+            }
+        });
+        const newID = student.id;
+        const remove = await prisma.Student.update({
+            where: { id: newID },
+            data: { 
+                name: name,
+                age: age,
+                email: email,
+                course: course
+            }
+        });
+        await prisma.$disconnect();
+        res.json(remove)
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error" });
+    }
+}
+
 module.exports = { 
-    addStudent, getStudents, getData, removeStudent,
+    addStudent, getStudents, getData, removeStudent, updateStudent,
 }

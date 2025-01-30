@@ -4,6 +4,7 @@ import About from '../views/AboutView.vue'
 import AddStudent from '../views/AddStudent.vue'
 import StudentList from '../views/List.vue'
 import SingleData from '../views/SingleData.vue'
+import UpdateData from '../views/UpdateData.vue'
 
 const routes = [
   {
@@ -31,6 +32,12 @@ const routes = [
     path: '/student/:uuid',
     name: 'studentdata',
     component: SingleData,
+  },
+  {
+    path: '/edit/:uuid',
+    name: 'update',
+    props: true,
+    component: UpdateData,
   },
 ]
 

@@ -1,26 +1,28 @@
 <template>
     <div>
         <table>
-            <tr>
-                <th>Name</th>
-                <td class="name">{{ profile.name }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ profile.email }}</td>
-            </tr>
-            <tr>
-                <th>Age</th>
-                <td>{{ profile.age }}</td>
-            </tr>
-            <tr>
-                <th>Course</th>
-                <td>{{ profile.course }}</td>
-            </tr>
-            <tr>
-                <th>Status</th>
-                <td><span :class="{ 'status': !profile.isDeleted }">Online</span></td>
-            </tr>
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td class="name">{{ profile.name }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ profile.email }}</td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>{{ profile.age }}</td>
+                </tr>
+                <tr>
+                    <th>Course</th>
+                    <td>{{ profile.course }}</td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td><span :class="{ 'status': !profile.isDeleted }">Online</span></td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </template>
